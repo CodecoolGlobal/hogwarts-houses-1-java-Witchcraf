@@ -25,4 +25,15 @@ public class RoomMemory implements RoomDAO {
     public Set<Room> getAll() {
         return rooms;
     }
+
+    @Override
+    public Room findById(int roomId) {
+        Room currentRoom = null;
+        for (Room room : rooms) {
+            if(room.getId() == roomId){
+                currentRoom = room;
+            }
+        }
+        return currentRoom;
+    }
 }
