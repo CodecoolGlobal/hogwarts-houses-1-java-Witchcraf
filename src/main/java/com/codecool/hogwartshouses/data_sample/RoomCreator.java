@@ -15,10 +15,10 @@ public class RoomCreator {
    private final RoomMemory roomMemory;
 
     public void initialize() {
-        Room room = new Room(UUID.randomUUID(), HouseType.GRYFFINDOR);
-        Room room1 = new Room(UUID.randomUUID(), HouseType.HUFFLEPUFF);
-        Room room2 = new Room(UUID.randomUUID(), HouseType.RAVENCLAW);
-        Room room3 = new Room(UUID.randomUUID(), HouseType.SLYTHERIN);
+        Room room = new Room(1, HouseType.GRYFFINDOR);
+        Room room1 = new Room(2, HouseType.HUFFLEPUFF);
+        Room room2 = new Room(3, HouseType.RAVENCLAW);
+        Room room3 = new Room(4, HouseType.SLYTHERIN);
         for (Room room4 : Arrays.asList(room, room1, room2, room3)) {
             roomMemory.add(room4);
         }
