@@ -36,4 +36,9 @@ public class RoomMemory implements RoomDAO {
         }
         return currentRoom;
     }
+
+    @Override
+    public void deleteById(int roomId) {
+        rooms.removeIf(room -> room.getId() == roomId);
+    }
 }

@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
@@ -42,6 +39,12 @@ public class RoomController {
     public String getRoomById(Model model, @PathVariable String roomId){
         Room myRoom = roomServices.findRoomById(roomId);
         model.addAttribute("myRoom", myRoom);
+        return "rooms";
+    }
+
+    @DeleteMapping(value = "rooms/{roomID}")
+    public String deleteRoomById(@PathVariable int roomID){
+        roomServices.cancelRoomById(roomID);
         return "rooms";
     }
 }

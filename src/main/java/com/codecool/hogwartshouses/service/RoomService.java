@@ -31,4 +31,8 @@ public class RoomService {
     public Room findRoomById(String roomId) {
         return roomDAO.findById(parseInt(roomId));
     }
+
+    public void cancelRoomById(int roomId) {
+        roomDAO.deleteById(roomId);
+    }
 }
