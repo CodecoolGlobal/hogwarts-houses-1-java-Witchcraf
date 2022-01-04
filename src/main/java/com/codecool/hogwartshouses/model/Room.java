@@ -10,6 +10,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class Room {
-    private UUID id;
+    private int id;
     private HouseType houseType;
 }
