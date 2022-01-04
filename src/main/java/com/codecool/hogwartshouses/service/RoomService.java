@@ -6,8 +6,10 @@ import com.codecool.hogwartshouses.service.DAO.RoomDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Random;
 import java.util.Set;
-import java.util.UUID;
+
+import static java.lang.Integer.parseInt;
 
 @Service
 public class RoomService {
@@ -20,7 +22,13 @@ public class RoomService {
     }
 
     public void addNewRoom() {
-        Room newRoom = new Room(UUID.randomUUID(), HouseType.GRYFFINDOR);
+        Random r = new Random();
+        int number =  r.nextInt(100-100) + 10;
+        Room newRoom = new Room(number, HouseType.GRYFFINDOR);
         roomDAO.add(newRoom);
+    }
+
+    public Room findRoomById(String roomId) {
+        return roomDAO.findById(parseInt(roomId));
     }
 }
