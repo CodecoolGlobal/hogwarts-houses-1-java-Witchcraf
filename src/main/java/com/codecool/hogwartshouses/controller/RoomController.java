@@ -53,4 +53,11 @@ public class RoomController {
         roomServices.updateRoomById(roomID);
         return "redirect:";
     }
+
+    @GetMapping(value = "rooms/available")
+    public String getFreeRooms(Model model){
+        Set<Room> allRoom = roomServices.getEmptyRooms();
+        model.addAttribute("allRoom", allRoom);
+        return "rooms";
+    }
 }
