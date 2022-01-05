@@ -3,6 +3,7 @@ package com.codecool.hogwartshouses.service;
 import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.Student;
 import com.codecool.hogwartshouses.model.types.HouseType;
+import com.codecool.hogwartshouses.model.types.PetType;
 import com.codecool.hogwartshouses.service.DAO.RoomDAO;
 import com.codecool.hogwartshouses.service.DAO.StudentDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class RoomService {
     public void addNewRoom() {
         Random r = new Random();
         int number =  r.nextInt(100-10) + 10;
-        Room newRoom = new Room(number, HouseType.GRYFFINDOR, null);
+        Room newRoom = new Room(number, HouseType.GRYFFINDOR, null, PetType.NONE);
         roomDAO.add(newRoom);
     }
 
@@ -65,4 +66,14 @@ public class RoomService {
         return emptyRooms;
     }
 
+    public Set<Room> getSafeRoomsToRat() {
+        Set<Room> roomsToPat = new HashSet<>();
+        for (Room room : getAllRoom()) {
+            if(room.getPetType() == PetType.NONE || room.getPetType() == PetType.RAT){
+                roomsToPat.add(room);
+            }
+
+        }
+        return roomsToPat;
+    }
 }
