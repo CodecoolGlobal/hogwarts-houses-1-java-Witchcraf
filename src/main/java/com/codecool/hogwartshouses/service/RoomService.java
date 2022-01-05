@@ -47,6 +47,13 @@ public class RoomService {
 
 
     public void addStudentToEmptyRoom(Student currentStudent) {
+        Set<Room> empties = getEmptyRooms();
+        Room firstEmptyRoom = empties.stream().findFirst().orElse(null);
+        System.out.println(firstEmptyRoom);
+        roomDAO.updateEmptyRoomWithStudent(firstEmptyRoom, currentStudent);
+    }
+
+    public Set<Room> getEmptyRooms(){
         Set<Room> allRoom = getAllRoom();
         Set<Room> emptyRooms = new HashSet<>();
         for (Room room : allRoom) {
@@ -55,9 +62,7 @@ public class RoomService {
             }
 
         }
-        Room firstEmptyRoom = emptyRooms.stream().findFirst().orElse(null);
-        System.out.println(firstEmptyRoom);
-        roomDAO.updateEmptyRoomWithStudent(firstEmptyRoom, currentStudent);
+        return emptyRooms;
     }
 
 }
