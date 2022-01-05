@@ -23,4 +23,16 @@ public class StudentMemory  implements StudentDao{
     public Set<Student> getAll() {
         return students;
     }
+
+    @Override
+    public Student findByName(String name) {
+        Student currentStudent = null;
+        for (Student student : students) {
+            if(student.getName().equals(name)){
+                currentStudent = student;
+            }
+
+        }
+        return currentStudent;
+    }
 }
