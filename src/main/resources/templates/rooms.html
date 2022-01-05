@@ -9,8 +9,6 @@
     <ul  th:each="room : ${allRoom}">
         <li th:text="${room.houseType}==null?'null':${room.houseType}"> </li>
     </ul>
-    <p>My Room type:</p>
-    <p th:text="${myRoom.houseType}"></p>
 </body>
 </html>
 
