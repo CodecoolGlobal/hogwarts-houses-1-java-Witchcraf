@@ -45,6 +45,6 @@ public class RoomController {
     @DeleteMapping(value = "rooms/{roomID}")
     public String deleteRoomById(@PathVariable int roomID){
         roomServices.cancelRoomById(roomID);
-        return "rooms";
+        return "redirect:";
     }
 }
