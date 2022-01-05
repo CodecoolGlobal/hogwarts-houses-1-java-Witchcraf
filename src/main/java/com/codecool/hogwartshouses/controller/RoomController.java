@@ -60,4 +60,11 @@ public class RoomController {
         model.addAttribute("allRoom", allRoom);
         return "rooms";
     }
+
+    @GetMapping(value = "rooms/rat-owners")
+    public String getSafeRoom(Model model){
+        Set<Room> safeRooms = roomServices.getSafeRoomsToRat();
+        model.addAttribute("allRoom", safeRooms);
+        return "rooms";
+    }
 }
