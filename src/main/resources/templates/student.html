@@ -9,5 +9,14 @@
 <ul  th:each="student : ${students}">
     <li th:text="${student.name}==null?'null':${student.name}"> </li>
 </ul>
+<!--<table th:each="room : ${rooms}">
+    <tr>
+        <th th:text="${room.getStudent().getName()}==null?'null':${room.getStudent().getName()}"></th>
+    </tr>
+    <tr>
+        <td th:text="${room.getId()}==null?'null':${room.getId()}"> </td>
+    </tr>
+</table>-->
+
 </body>
 </html>

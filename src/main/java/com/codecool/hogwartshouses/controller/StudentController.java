@@ -37,9 +37,10 @@ public class StudentController {
     }
 
     @PutMapping(value = "students/{studentName}")
-    public String updateRoomWithStudent(@PathVariable String studentName){
+    public String updateRoomWithStudent(Model model, @PathVariable String studentName){
         Student currentStudent = studentService.getStudentByName(studentName);
         roomServices.addStudentToEmptyRoom(currentStudent);
+        //model.addAttribute("rooms", roomServices.getAllRoom());
         return "redirect:";
     }
 }
