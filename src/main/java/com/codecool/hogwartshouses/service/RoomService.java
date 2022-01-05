@@ -35,4 +35,9 @@ public class RoomService {
     public void cancelRoomById(int roomId) {
         roomDAO.deleteById(roomId);
     }
+
+    public void updateRoomById(int roomID) {
+        Room updatedRoom = roomDAO.findById(roomID);
+        updatedRoom.setHouseType(HouseType.SLYTHERIN);
+    }
 }
