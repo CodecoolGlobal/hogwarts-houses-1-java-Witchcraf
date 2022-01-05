@@ -47,4 +47,10 @@ public class RoomController {
         roomServices.cancelRoomById(roomID);
         return "redirect:";
     }
+
+    @PutMapping(value = "rooms/{roomID}")
+    public String updateRoom(@PathVariable int roomID){
+        roomServices.updateRoomById(roomID);
+        return "redirect:";
+    }
 }
