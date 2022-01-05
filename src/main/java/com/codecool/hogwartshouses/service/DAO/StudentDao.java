@@ -8,4 +8,5 @@ import java.util.Set;
 public interface StudentDao {
     void add(Student student);
     Set<Student> getAll();
+    Student findByName(String alex);
 }
