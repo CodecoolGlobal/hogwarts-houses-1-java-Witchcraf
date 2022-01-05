@@ -3,6 +3,7 @@ package com.codecool.hogwartshouses.data_sample;
 import com.codecool.hogwartshouses.model.Room;
 import com.codecool.hogwartshouses.model.Student;
 import com.codecool.hogwartshouses.model.types.HouseType;
+import com.codecool.hogwartshouses.model.types.PetType;
 import com.codecool.hogwartshouses.service.DAO.RoomMemory;
 import com.codecool.hogwartshouses.service.DAO.StudentMemory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,10 @@ public class RoomCreator {
     public void initialize() {
         Student st1 = new Student(123, "A");
         Student st2 = new Student(124, "b");
-        Room room = new Room(1, HouseType.GRYFFINDOR, st1);
-        Room room1 = new Room(2, HouseType.HUFFLEPUFF, st2);
-        Room room2 = new Room(3, HouseType.RAVENCLAW, null);
-        Room room3 = new Room(4, HouseType.SLYTHERIN, null);
+        Room room = new Room(1, HouseType.GRYFFINDOR, st1, PetType.NONE);
+        Room room1 = new Room(2, HouseType.HUFFLEPUFF, st2, PetType.OWL);
+        Room room2 = new Room(3, HouseType.RAVENCLAW, null, PetType.CAT);
+        Room room3 = new Room(4, HouseType.SLYTHERIN, null, PetType.RAT);
         studentMemory.add(st1);
         studentMemory.add(st2);
         roomMemory.add(room);
